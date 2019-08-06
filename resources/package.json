@@ -1,0 +1,14 @@
+{
+  "name": "test-api",
+  "version": "1.0.0",
+  "description": "Test API for Rev IT",
+  "author": "Denis Singh",
+  "license": "",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js",
+  },
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}
