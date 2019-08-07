@@ -5,5 +5,3 @@ env:
     value: <node_env>
   - name: LOG_LEVEL
     value: 3
-  - name: PORT
-    value: 9000

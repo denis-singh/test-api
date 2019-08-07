@@ -3,9 +3,6 @@
     <Basepaths>/test-api</Basepaths>
     <Description/>
     <DisplayName>test-api</DisplayName>
-    <ProxyEndpoints>
-        <ProxyEndpoint>default</ProxyEndpoint>
-    </ProxyEndpoints>
     <Resources>
         <Resource>hosted://app.yaml</Resource>
         <Resource>hosted://index.js</Resource>
