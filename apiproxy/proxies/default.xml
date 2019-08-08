@@ -18,6 +18,9 @@
             <Step>
                 <Name>Response-Cache-1</Name>
             </Step>
+            <Step>
+                <Name>Statistics-Collector-1</Name>
+            </Step>
         </Response>
     </PreFlow>
     <PostFlow name="PostFlow">

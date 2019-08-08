@@ -19,12 +19,6 @@ node {
         }
     }
 
-    // Get branch and commit id
-    unstash "var-stash"
-    def short_commit_id = readFile('var_short_commit-id').trim()
-
-    println "Git branch = ${BRANCH_NAME}, Git commit id: ${short_commit_id}"
-
     stage('Install Node Dependency') {
         env.PATH = "/usr/local/lib/npm/bin/:${env.PATH}"
         sh "npm install"
@@ -33,29 +27,28 @@ node {
 }
 
 if ("${BRANCH_NAME}" == "develop") {
-    stage('Release to test environment') {
+    stage('Deploy to test environment') {
         node {
-            ENV = "dev"
-
-            // Get commit id
-            unstash "var-stash"
-            def short_commit_id = readFile('var_short_commit-id').trim()
-
+            env = "test"
+	    proxy = "test-api"
+            org = "singhdenis-eval" 
+	    url = "https://api.enterprise.apigee.com"
+	    
+            sh "./deploy.py -n ${proxy} -u xxxx -o ${org} -h ${url} -e ${env} -p / -d ../test-api"
         }
     }
 
 }
 
 if ("${BRANCH_NAME}" == "master") {
-    stage('Release to PRD') {
+    stage('Deploy to prod environment') {
         node {
-            ENV = "prd"
-
-            // Get commit id
-            unstash "var-stash"
-            def short_commit_id = readFile('var_short_commit-id').trim()
-
-
+            env = "prod"
+	    proxy = "test-api"
+            org = "singhdenis-eval" 
+	    url = "https://api.enterprise.apigee.com"
+	    
+            sh "./deploy.py -n ${proxy} -u xxxx -o ${org} -h ${url} -e ${env} -p / -d ../test-api"
         }
     }
 }
