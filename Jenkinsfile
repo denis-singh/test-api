@@ -17,10 +17,10 @@ node {
         }
     }
 
-#    stage('Install Node Dependency') {
-#        env.PATH = "/usr/local/lib/npm/bin/:${env.PATH}"
-#        sh "npm install"
-#    }
+//    stage('Install Node Dependency') {
+//        env.PATH = "/usr/local/lib/npm/bin/:${env.PATH}"
+//        sh "npm install"
+//    }
 
     if ("${BRANCH_NAME}" == "develop") {
         stage('Deploy to test environment') {
