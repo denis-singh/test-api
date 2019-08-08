@@ -48,10 +48,6 @@ if ("${BRANCH_NAME}" == "develop") {
 
 if ("${BRANCH_NAME}" == "master") {
     stage('Release to PRD') {
-        timeout(time: 30, unit: 'DAYS') {
-            input message: 'Deploy release to PRD?',
-                ok: 'Ok to deploy'
-        }
         node {
             ENV = "prd"
 
